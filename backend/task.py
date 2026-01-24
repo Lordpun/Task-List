@@ -16,6 +16,18 @@ def getTasks():
 			tasks.append(Task(task['description'], task['priority'], task['complete']))
 	return tasks
 
+def saveTasks(taskList):
+	saveList = []
+	for item in taskList:
+		saveList.append({
+			'description': item.description,
+			'priority': item.priority,
+			'complete': item.complete
+		})
+
+	with open('tasks.json', 'w') as outfile:
+		json.dump(saveList, outfile)
+
 # Check if sort task array worked
 def sortTasksCheck(sortedArray):
 	if sortedArray[0].priority != 1:

@@ -1,4 +1,6 @@
 import random
+import json
+import os
 
 class Task:
 	def __init__(self, description, priority, complete = False):
@@ -7,10 +9,25 @@ class Task:
 		self.complete = complete
 
 
+# Check if any data has been added to the task JSON
+def isEmptyJSON():
+	if not os.path.exists("./tasks.json"):
+		with open("tasks.json", "w") as jsonFile:
+			jsonFile.close()
+		return True
+
+	if os.path.getsize("./tasks.json") > 0:
+		return False
+	
+	return True
+
 # Gets tasks from a JSON and puts them into an array
 def getTasks():
+	if isEmptyJSON():
+		return []
+	
 	tasks = []
-	with open('tasks.json') as json_file:
+	with open('tasks.json', "r") as json_file:
 		data = json.load(json_file)
 		for task in data:
 			tasks.append(Task(task['description'], task['priority'], task['complete']))

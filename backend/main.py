@@ -10,6 +10,9 @@ def addTask(description, priority):
 	currentTasks.append(newTask)
 	currentTasks = task.sortTasks(currentTasks)
 
+	# Append tasks to the JSON file
+	task.saveTasks(currentTasks)
+
 # Account for priority change
 def fixPriority(newPriority):
 	for item in currentTasks:

@@ -1,5 +1,10 @@
 <template>
   <section>
+    <div class="priorityChange"> 
+      <priority-btn></priority-btn>
+      <priority-btn></priority-btn>
+    </div>
+
   	<div class="priority">
   		<h4>Priority</h4>
   		<p>{{ priority }}</p>
@@ -11,7 +16,7 @@
   	</div>
 
   	<div class="date">
-  		<h4>Date Added</h4>
+  		<h4>Date</h4>
   		<p>{{ date }}</p>
   	</div>
 
@@ -22,6 +27,42 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+  import priorityBtn from "/priorityChangeBtn.vue";
 
-<style scoped></style>
+  const props = defineProps({
+    priority: String,
+    description: String,
+    date: String
+  });
+</script>
+  
+<style scoped>
+  section {
+    display: inline;
+    padding: 0;
+  }
+
+  section div {
+    display: inline-block;
+  }
+
+  .priorityChange {
+    width: 10%;  
+  }
+  .priority {
+    width: 10%;
+  }
+
+  .description {
+    width: 60%;
+  }
+
+  .date {
+    width: 20%;
+  }
+
+  .status {
+   width: 20%; 
+  } 
+</style>

@@ -1,10 +1,11 @@
 import task
+import datetime
 
 currentTasks = task.getTasks()
 
 # Add new task
 def addTask(description, priority):
-	newTask = Task(description, priority)
+	newTask = Task(description, priority, datetime.datetime.now())
 	fixPriority(priority)
 
 	currentTasks.append(newTask)

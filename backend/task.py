@@ -3,9 +3,10 @@ import json
 import os
 
 class Task:
-	def __init__(self, description, priority, complete = False):
+	def __init__(self, description, priority, timeAdded, complete = False):
 		self.description = description
 		self.priority = priority
+		self.time = timeAdded
 		self.complete = complete
 
 

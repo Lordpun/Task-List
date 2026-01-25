@@ -1,8 +1,8 @@
 <template>
   <section>
     <div class="priorityChange"> 
-      <priority-btn></priority-btn>
-      <priority-btn></priority-btn>
+      <priority-btn direction="true"></priority-btn>
+      <priority-btn direction="false"></priority-btn>
     </div>
 
   	<div class="priority">
@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-  import priorityBtn from "/priorityChangeBtn.vue";
+  import priorityBtn from "./priorityButton.vue";
 
   const props = defineProps({
     priority: String,
@@ -39,30 +39,37 @@
   
 <style scoped>
   section {
-    display: inline;
-    padding: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.5rem;
   }
 
   section div {
-    display: inline-block;
+    border: 1px solid black;
+    font-size: 1rem;
+    /*padding: 0 2rem;*/
   }
 
   .priorityChange {
-    width: 10%;  
+    flex-grow: 1;
   }
+
   .priority {
-    width: 10%;
+    felx-grow: 2;
+    text-align: center;
   }
 
   .description {
-    width: 60%;
+    flex-grow: 4;
   }
 
   .date {
-    width: 20%;
+    flex-grow: 1;
+    text-align: center;
   }
 
   .status {
-   width: 20%; 
+   flex-grow: 1;
+   text-align: center;
   } 
 </style>

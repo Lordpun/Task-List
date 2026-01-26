@@ -14,6 +14,13 @@ def addTask(description, priority):
 	# Append tasks to the JSON file
 	task.saveTasks(currentTasks)
 
+# Remove a task
+def removeTask(priority):
+	for item in currentTasks:
+		if item.priority == priority:
+			currentTasks.pop(item)
+			return
+
 # Account for priority change
 def fixPriority(newPriority, changeDirection=True):
 	for item in currentTasks:

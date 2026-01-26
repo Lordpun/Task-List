@@ -15,7 +15,25 @@ def addTask(description, priority):
 	task.saveTasks(currentTasks)
 
 # Account for priority change
-def fixPriority(newPriority):
+def fixPriority(newPriority, changeDirection=True):
 	for item in currentTasks:
-		if item.priority <= newPriority:
+		if item.priority <= newPriority and chageDirection:
 			item.priority += 1
+		elif item.priority >= newPriority and not changeDirection:
+			item.priority -= 1
+
+# Changes priority of a task
+def changePriority(index, changeDirection):
+	task = currentTasks[index]
+	currentTasks.pop(index)
+
+	if changeDirection:
+		direction = 1
+	else:
+		direction = -1
+
+	fixPriority(task.priority + direction, changeDirection)
+	currentTasks.append(task)
+
+	task.sortTasks(currentTasks)
+	task.saveTasks(currentTasks)

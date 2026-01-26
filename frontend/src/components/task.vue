@@ -20,9 +20,8 @@
   		<p>{{ date }}</p>
   	</div>
 
-  	<div class="status">
-  		<h4>Complete</h4>
-  		<input type="checkbox">
+  	<div class="close">
+  		<a>X</a>
   	</div>
   </section>
 </template>
@@ -44,7 +43,7 @@
   }
 
   section div {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     font-size: 1rem;
     padding: 0 0.5rem;
   }

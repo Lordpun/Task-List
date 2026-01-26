@@ -40,36 +40,36 @@
 <style scoped>
   section {
     display: flex;
-    flex-direction: row;
     padding: 0 0.5rem;
   }
 
   section div {
     border: 1px solid black;
     font-size: 1rem;
-    /*padding: 0 2rem;*/
+    padding: 0 0.5rem;
   }
 
   .priorityChange {
-    flex-grow: 1;
+    flex-grow: 0.25;
+    padding: 0;
   }
 
   .priority {
-    felx-grow: 2;
+    felx-grow: 0.5;
     text-align: center;
   }
 
   .description {
-    flex-grow: 4;
+    flex-grow: 2;
   }
 
   .date {
-    flex-grow: 1;
+    flex-grow: 0.5;
     text-align: center;
   }
 
   .status {
-   flex-grow: 1;
+   flex-grow: 0.25;
    text-align: center;
   } 
 </style>

@@ -1,9 +1,8 @@
 <template>
-	<button class="priorityChangeBtn">
+	<a class="priorityChangeBtn">
 		<h4 v-if="direction">↑</h4>
 		<h4 v-else>↓</h4>
-
-	</button>
+	</a>
 </template>
 
 <script setup>
@@ -14,10 +13,12 @@
 </script>
 
 <style scoped>
-	button {
+	a {
+		display: block;
+		text-align: center;
 		width: 100%;
-		height: 25%;
 		padding: 0;
 		margin: 0;
+		cursor: pointer;
 	}
 </style>

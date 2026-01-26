@@ -3,8 +3,13 @@ import datetime
 
 currentTasks = task.getTasks()
 
+# Gets task list for the API
+def getTasks():
+	return currentTasks
+
 # Add new task
-def addTask(description, priority):
+def addTask(description):
+	priority = len(currentTasks) + 1
 	newTask = Task(description, priority, datetime.datetime.now())
 	fixPriority(priority)
 

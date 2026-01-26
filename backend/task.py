@@ -3,11 +3,10 @@ import json
 import os
 
 class Task:
-	def __init__(self, description, priority, date, complete = False):
+	def __init__(self, description, priority, date):
 		self.description = description
 		self.priority = priority
 		self.date = date
-		self.complete = complete
 
 
 # Check if any data has been added to the task JSON

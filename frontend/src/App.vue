@@ -11,11 +11,16 @@
     <section class="taskBody">
       <task></task>
     </section>
+
+    <section class="taskInput">
+      <inputField></inputField>
+    </section>
   </main>
 </template>
 
 <script setup>
 	import task from "./components/task.vue"
+  import inputField from "./components/input.vue"
 </script>
 
 <style scoped>

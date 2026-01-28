@@ -15,4 +15,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  clearScreen: false,
+  server: {
+    strictPort: true 
+  },
+  envPrefix: ['VITE_', 'TAURI_'],
 })

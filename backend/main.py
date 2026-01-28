@@ -1,6 +1,8 @@
 import task
 import datetime
 
+_tauri_plugin_functions = ["getTasks", "addTask", "removeTask", "changePriority"]
+
 currentTasks = task.getTasks()
 
 # Gets task list for the API
@@ -29,6 +31,9 @@ def removeTask(priority):
 	for item in currentTasks:
 		if item.priority == priority:
 			currentTasks.pop(item)
+			fixPriority(priority, False)
+
+			task.saveTasks(currentTasks)
 			return
 
 # Account for priority change

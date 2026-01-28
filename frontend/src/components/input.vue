@@ -6,26 +6,11 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue';
-	const taskDescription = ref("")
+	// import { invoke } from '@tauri-apps/api/core';
 
-	function addTask() {
-		if (taskDescription == "") {
-			return "No description"
-		}
-
-		const description = {
-			description: taskDescription
-		}
-
-		fetch("/task/add", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(description)
-		})
-	}
+	// const runPython = async () => {
+	  
+	// };
 </script>
 
 <style scoped>

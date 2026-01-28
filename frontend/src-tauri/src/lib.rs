@@ -11,6 +11,14 @@ pub fn run() {
       }
       Ok(())
     })
-    .run(tauri::generate_context!())
+
+    .plugin(tauri_plugin_python::init_and_register(vec![
+      "getTasks",
+      "addTask",
+      "removeTask",
+      "changePriority"
+    ]))
+    
+    .run(tauri::generate_context!())  
     .expect("error while running tauri application");
 }

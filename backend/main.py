@@ -5,10 +5,13 @@ currentTasks = task.getTasks()
 
 # Gets task list for the API
 def getTasks():
+	global currentTasks
 	return currentTasks
 
 # Add new task
 def addTask(description):
+	global currentTasks
+
 	priority = len(currentTasks) + 1
 	newTask = Task(description, priority, datetime.datetime.now())
 	fixPriority(priority)
@@ -21,6 +24,8 @@ def addTask(description):
 
 # Remove a task
 def removeTask(priority):
+	global currentTasks
+
 	for item in currentTasks:
 		if item.priority == priority:
 			currentTasks.pop(item)
@@ -28,6 +33,8 @@ def removeTask(priority):
 
 # Account for priority change
 def fixPriority(newPriority, changeDirection=True):
+	global currentTasks
+
 	for item in currentTasks:
 		if item.priority <= newPriority and chageDirection:
 			item.priority += 1
@@ -36,6 +43,8 @@ def fixPriority(newPriority, changeDirection=True):
 
 # Changes priority of a task
 def changePriority(index, changeDirection):
+	global currentTasks
+	
 	task = currentTasks[index]
 	currentTasks.pop(index)
 

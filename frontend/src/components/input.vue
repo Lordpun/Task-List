@@ -6,11 +6,23 @@
 </template>
 
 <script setup>
-	// import { invoke } from '@tauri-apps/api/core';
+	import { invoke } from '@tauri-apps/api/core';
+	import { ref } from 'vue';
+	const taskDescription = ref('');
 
-	// const runPython = async () => {
-	  
-	// };
+	function addTask() {
+		if (taskDescription.value == '') {
+			return;
+		}
+
+		const runPython = async () => {
+	  try {
+	  	await invoke("addTask")
+	  } catch (error) {
+			console.error("Python Error: ", error);
+	  }
+	};
+	}
 </script>
 
 <style scoped>

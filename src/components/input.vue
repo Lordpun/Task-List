@@ -17,7 +17,7 @@
 
 		const runPython = async () => {
 	  try {
-	  	await invoke("addTask")
+	  	await callFunction("addTask", [taskDescription.value]);
 	  } catch (error) {
 			console.error("Python Error: ", error);
 	  }

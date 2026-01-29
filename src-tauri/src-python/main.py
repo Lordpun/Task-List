@@ -1,4 +1,5 @@
 import task
+import json
 import datetime
 
 _tauri_plugin_functions = ["getTasks", "addTask", "removeTask", "changePriority"]
@@ -8,7 +9,9 @@ currentTasks = task.getTasks()
 # Gets task list for the API
 def getTasks():
 	global currentTasks
-	return currentTasks
+
+	jsonTasks = json.dumps(currentTasks)
+	return jsonTasks
 
 # Add new task
 def addTask(description):

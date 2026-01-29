@@ -7,7 +7,6 @@ pub fn run() {
                 .build(),
         )
         .plugin(tauri_plugin_shell::init())
-        // 3. Initialize the Python plugin
         .plugin(tauri_plugin_python::init_and_register(vec![
             "getTasks",
             "addTask",

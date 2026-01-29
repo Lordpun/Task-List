@@ -15,7 +15,7 @@ def addTask(description):
 	global currentTasks
 
 	priority = len(currentTasks) + 1
-	newTask = Task(description, priority, datetime.datetime.now())
+	newTask = task.Task(description, priority, datetime.datetime.now())
 	fixPriority(priority)
 
 	currentTasks.append(newTask)
@@ -30,7 +30,7 @@ def removeTask(priority):
 
 	for item in currentTasks:
 		if item.priority == priority:
-			currentTasks.pop(item)
+			currentTasks.pop(currentTasks.index(item))
 			fixPriority(priority, False)
 
 			task.saveTasks(currentTasks)
@@ -47,19 +47,21 @@ def fixPriority(newPriority, changeDirection=True):
 			item.priority -= 1
 
 # Changes priority of a task
-def changePriority(index, changeDirection):
+def changePriority(priority, changeDirection):
 	global currentTasks
 	
-	task = currentTasks[index]
-	currentTasks.pop(index)
+	for item in currentTasks:
+		if item.priority == priority:
+			chosenTask = item
+			currentTasks.pop(currentTasks.index(item))
 
 	if changeDirection:
 		direction = 1
 	else:
 		direction = -1
 
-	fixPriority(task.priority + direction, changeDirection)
-	currentTasks.append(task)
+	fixPriority(chosenTask.priority + direction, changeDirection)
+	currentTasks.append(currentTasks.index(chosenTask))
 
 	task.sortTasks(currentTasks)
 	task.saveTasks(currentTasks)

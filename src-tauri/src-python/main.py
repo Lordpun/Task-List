@@ -1,10 +1,14 @@
 import task
 import json
 import datetime
+import os
 
 _tauri_plugin_functions = ["getTasks", "addTask", "removeTask", "changePriority"]
 
-currentTasks = task.getTasks()
+def loadTaskFile(path):
+	if not os.path.exists(path):
+		return "Need an actual path"
+	currentTasks = task.getTasks(path)
 
 #Move safePath into task.py
 def transferPath():

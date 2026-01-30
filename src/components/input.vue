@@ -16,12 +16,12 @@
 		}
 
 		const runPython = async () => {
-	  try {
-	  	await callFunction("addTask", [taskDescription.value]);
-	  } catch (error) {
-			console.error("Python Error: ", error);
-	  }
-	};
+		  try {
+		  	await callFunction("addTask", [taskDescription.value]);
+		  } catch (error) {
+				console.error("Python Error: ", error);
+		  }
+		};
 	}
 </script>
 

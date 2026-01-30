@@ -1,8 +1,8 @@
 <template>
   <section>
     <div class="priorityChange"> 
-      <priority-btn direction="true"></priority-btn>
-      <priority-btn direction="false"></priority-btn>
+      <priority-btn :direction="true"></priority-btn>
+      <priority-btn :direction="false"></priority-btn>
     </div>
 
   	<div class="priority">
@@ -54,7 +54,7 @@
   }
 
   .priority {
-    felx-grow: 0.5;
+    flex-grow: 0.5;
     text-align: center;
   }
 

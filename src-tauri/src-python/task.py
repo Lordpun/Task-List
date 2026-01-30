@@ -3,46 +3,45 @@ import json
 import os
 
 class Task:
-	def __init__(self, description, priority, date):
-		self.description = description
+	def __init__(self, priority, description, date):
 		self.priority = priority
+		self.description = description
 		self.date = date
 
-
 # Check if any data has been added to the task JSON
-def isEmptyJSON():
-	if not os.path.exists("./tasks.json"):
-		with open("tasks.json", "w") as jsonFile:
+def isEmptyJSON(jsonFile):
+	if not os.path.exists(jsonFile):
+		with open(jsonFile, "w") as jsonFile:
 			jsonFile.close()
 		return True
 
-	if os.path.getsize("./tasks.json") > 0:
+	if os.path.getsize(jsonFile) > 0:
 		return False
 	
 	return True
 
 # Gets tasks from a JSON and puts them into an array
-def getTasks():
-	if isEmptyJSON():
+def getTasks(taskFile):
+	if isEmptyJSON(taskFile):
 		return []
 	
 	tasks = []
-	with open('tasks.json', "r") as json_file:
+	with open(taskFile, "r") as json_file:
 		data = json.load(json_file)
 		for task in data:
-			tasks.append(Task(task['description'], task['priority'], task['complete']))
+			tasks.append(Task(task['priority'], task['description'], task['date']))
 	return tasks
 
-def saveTasks(taskList):
+def saveTasks(taskList, taskFile):
 	saveList = []
 	for item in taskList:
 		saveList.append({
-			'description': item.description,
 			'priority': item.priority,
-			'complete': item.complete
+			'description': item.description,
+			'date': item.date
 		})
 
-	with open('tasks.json', 'w') as outfile:
+	with open(taskFile, 'w') as outfile:
 		json.dump(saveList, outfile)
 
 # Check if sort task array worked

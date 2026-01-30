@@ -6,11 +6,24 @@ _tauri_plugin_functions = ["getTasks", "addTask", "removeTask", "changePriority"
 
 currentTasks = task.getTasks()
 
-# Gets task list for the API
+#Move safePath into task.py
+def transferPath():
+	global savePath
+	savePath = path
+
+# Convert tasks to JSON for the frontend
 def getTasks():
 	global currentTasks
 
-	jsonTasks = json.dumps(currentTasks)
+	taskArray = []
+	for item in currentTasks:
+		taskArray.append({
+			"priority": item.priority,
+			"description": item.description,
+			"date": item.date
+		})
+
+	jsonTasks = json.dumps(taskArray)
 	return jsonTasks
 
 # Add new task
@@ -18,7 +31,7 @@ def addTask(description):
 	global currentTasks
 
 	priority = len(currentTasks) + 1
-	newTask = task.Task(description, priority, datetime.datetime.now())
+	newTask = task.Task(priority, description, datetime.datetime.now())
 	fixPriority(priority)
 
 	currentTasks.append(newTask)

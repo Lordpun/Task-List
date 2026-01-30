@@ -7,6 +7,8 @@
 </template>
 
 <script setup>
+	import { useJsonStore } from '@/stores/jsonStore'
+	
 	function getFile() {
 		const file = this.files[0];
 

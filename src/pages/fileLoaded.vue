@@ -16,7 +16,7 @@
     </ul>
 
     <section class="taskInput">
-      <inputField></inputField>
+      <inputField />
     </section>
 </template>
 

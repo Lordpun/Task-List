@@ -16,7 +16,7 @@
     </section>
 
     <section class="taskInput">
-      <inputField />
+      <inputField @taskModified="displayTasks" />
     </section>
   </section>
 </template>

@@ -10,18 +10,14 @@
 	import { ref } from 'vue';
 	const taskDescription = ref('');
 
-	function addTask() {
+	async function addTask() {
 		if (taskDescription.value == '') {
 			return;
 		}
 
-		const runPython = async () => {
-		  try {
-		  	await callFunction("addTask", [taskDescription.value]);
-		  } catch (error) {
-				console.error("Python Error: ", error);
-		  }
-		};
+		await invoke("addTask", [taskDescription.value]);
+
+		emit("taskModified")
 	}
 </script>
 

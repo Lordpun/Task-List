@@ -3,17 +3,18 @@
     <h3>{{ store.fileName }}</h3>
     <h4>Your Current Tasks</h4>
 
-    <ul v-if="tasksExist" class="taskBody">
+
+    <section v-if="tasksExist" class="taskBody">
       <task
       v-for="(task, index) in tasksLoaded"
       :key="index"
       v-bind="task"
       />
-    </ul>
+    </section>
 
-    <ul v-else>
+    <section v-else>
       <h4>No tasks exist</h4>
-    </ul>
+    </section>
 
     <section class="taskInput">
       <inputField />
@@ -35,7 +36,7 @@
   const store = useJsonStore();
 
   function displayTasks() {
-    taskData = store.uploadedData;
+    const taskData = store.uploadedData;
     if (taskData) tasksLoaded.value = taskData;
 
     if ( tasksLoaded.value.length <= 0 ) { tasksExist.value = false; }
@@ -56,7 +57,7 @@
     padding-bottom: 0;
     text-align: center;
   }
-
+  
   .taskInput {
     padding: 0;
   }

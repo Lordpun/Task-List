@@ -24,7 +24,7 @@
 			const result = e.target.result.trim();
 			try {
 				if (result === "") {
-					store.setJsonData({}, file.name);
+					store.setJsonData([], file.name);
 				} else {
 					const jsonContent = JSON.parse(e.target.result);
 					store.setJsonData(jsonContent, file.name);

@@ -40,6 +40,7 @@
   section {
     display: flex;
     padding: 0 0.5rem;
+    line-height: 0.5rem;
   }
 
   section div {
@@ -59,7 +60,9 @@
   }
 
   .description {
-    flex-grow: 2;
+    flex-grow: 3;
+    text-align: left;
+    padding: 0 1rem;
   }
 
   .date {
@@ -67,8 +70,25 @@
     text-align: center;
   }
 
-  .status {
-   flex-grow: 0.25;
-   text-align: center;
-  } 
+  .close {
+    display: grid;
+    place-items: center;
+  }
+
+  .close a {
+    background-color: #ddd;
+    color: red;
+    padding: 0.70rem 0.60rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .close a:hover {
+    background-color: #bbb;
+  }
+
+  .close a:active {
+    background-color: #eee;
+  }
 </style>

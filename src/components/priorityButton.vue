@@ -17,8 +17,20 @@
 		display: block;
 		text-align: center;
 		width: 100%;
+		height: 50%;
 		padding: 0;
 		margin: 0;
 		cursor: pointer;
+		background-color: #ddd;
+		display: grid;
+    place-items: center;
+	}
+
+	a:hover {
+		background-color: #bbb;
+	}
+
+	a:active {
+		background-color: #eee;
 	}
 </style>

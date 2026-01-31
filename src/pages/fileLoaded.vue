@@ -1,37 +1,42 @@
 <template>
   <section>
-      <h4>Your Current Tasks</h4>
-    </section>
+    <h3>{{ store.fileName }}</h3>
+    <h4>Your Current Tasks</h4>
+  </section>
 
-    <ul v-if="tasksExist" class="taskBody">
-      <task
-      v-for="(task, index) in tasksLoaded"
-      :key="index"
-      v-bind="task"
-       />
-    </ul>
+  <ul v-if="tasksExist" class="taskBody">
+    <task
+    v-for="(task, index) in tasksLoaded"
+    :key="index"
+    v-bind="task"
+    />
+  </ul>
 
-    <ul v-else>
-      <h4>No tasks exist</h4>
-    </ul>
+  <ul v-else>
+    <h4>No tasks exist</h4>
+  </ul>
 
-    <section class="taskInput">
-      <inputField />
-    </section>
+  <section class="taskInput">
+    <inputField />
+  </section>
 </template>
 
 <script setup>
-  import task from "./components/task.vue"
-  import inputField from "./components/input.vue"
+  import task from "../components/task.vue"
+  import inputField from "../components/input.vue"
   import { invoke } from '@tauri-apps/api/core';
   import { ref, onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useJsonStore } from '@/stores/jsonStore'
 
   const tasksLoaded = ref([])
   const tasksExist = ref(true)
 
-  async function displayTasks() {
-    const taskJson = await callFunction("get_tasks");
-    tasksLoaded.value = JSON.parse(taskJson);
+  const store = useJsonStore();
+
+  function displayTasks() {
+    taskData = store.uploadedData;
+    if (taskData) tasksLoaded.value = taskData;
 
     if ( tasksLoaded.value.length <= 0 ) { tasksExist.value = false; }
     else { tasksExist.value = true; }

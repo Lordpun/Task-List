@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import noFile from '../views/HomeView.vue';
-import fileLoaded from '../views/AboutView.vue';
+import noFile from '../pages/noFile.vue';
+import fileLoaded from '../pages/fileLoaded.vue';
 
 const routes = [
   {

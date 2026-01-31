@@ -1,23 +1,23 @@
 <template>
-  <section>
+  <section class="pageBody">
     <h3>{{ store.fileName }}</h3>
     <h4>Your Current Tasks</h4>
-  </section>
 
-  <ul v-if="tasksExist" class="taskBody">
-    <task
-    v-for="(task, index) in tasksLoaded"
-    :key="index"
-    v-bind="task"
-    />
-  </ul>
+    <ul v-if="tasksExist" class="taskBody">
+      <task
+      v-for="(task, index) in tasksLoaded"
+      :key="index"
+      v-bind="task"
+      />
+    </ul>
 
-  <ul v-else>
-    <h4>No tasks exist</h4>
-  </ul>
+    <ul v-else>
+      <h4>No tasks exist</h4>
+    </ul>
 
-  <section class="taskInput">
-    <inputField />
+    <section class="taskInput">
+      <inputField />
+    </section>
   </section>
 </template>
 
@@ -51,7 +51,13 @@
   section {
     border: 1px solid #ccc;
     width: 90%;
-    margin: 0 auto;
+    margin: 2rem auto;
+    padding: 2rem;
+    padding-bottom: 0;
     text-align: center;
+  }
+
+  .taskInput {
+    padding: 0;
   }
 </style>

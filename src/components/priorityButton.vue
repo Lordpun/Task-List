@@ -31,6 +31,5 @@
 	}
 
 	a:active {
-		background-color: #eee;
+	</style>	background-color: #eee;
 	}
-</style>

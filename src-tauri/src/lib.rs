@@ -12,6 +12,7 @@ pub fn run() {
             "addTask",
             "removeTask",
             "changePriority",
+            "loadTaskFile"
         ]))
         .setup(|_app| {
             Ok(())

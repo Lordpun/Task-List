@@ -3,17 +3,17 @@ import json
 import datetime
 import os
 
-_tauri_plugin_functions = ["getTasks", "addTask", "removeTask", "changePriority"]
+_tauri_plugin_functions = ["getTasks", "addTask", "removeTask", "changePriority", "loadTaskFile"]
 
-def loadTaskFile(path):
-	if not os.path.exists(path):
-		return "Need an actual path"
-	currentTasks = task.getTasks(path)
+fileName = ""
+currentTasks = []
 
-#Move safePath into task.py
-def transferPath():
-	global savePath
-	savePath = path
+# Takes Javascript object and turns it into classes
+def loadTaskFile(name, data):
+	for item in data:
+		currentTasks.append(task.Task(item.priority, item.description, item.date))
+
+	fileName = name
 
 # Convert tasks to JSON for the frontend
 def getTasks():

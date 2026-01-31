@@ -3,7 +3,6 @@
     <h3>{{ store.fileName }}</h3>
     <h4>Your Current Tasks</h4>
 
-
     <section v-if="tasksExist" class="taskBody">
       <task
       v-for="(task, index) in tasksLoaded"
@@ -35,12 +34,14 @@
 
   const store = useJsonStore();
 
-  function displayTasks() {
+  async function displayTasks() {
     const taskData = store.uploadedData;
     if (taskData) tasksLoaded.value = taskData;
 
     if ( tasksLoaded.value.length <= 0 ) { tasksExist.value = false; }
     else { tasksExist.value = true; }
+
+    await invoke("loadTaskFile", [store.fileName, tasksLoaded])
   }
 
   onMounted(() => {
